@@ -4,13 +4,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signUp } from '../../apiService/axiosClient';
 import './../login/login.scss';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUpForm = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
-    const [confirmPassword, setConfirmPassword] = useState(null);
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleChange = (e) => {
         setFormData({
@@ -21,18 +23,32 @@ const SignUpForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        if (confirmPassword != formData.password) {
+            toast.error('Password does not meet requirements. Please check and try again.');
+            setConfirmPassword('');
+            setFormData({
+                email: '',
+                password: '',
+            });
+            return;
+        }
         try {
-         const signUpResponse =  (await signUp(formData)).data;
-        
-     } catch (error) {
-        console.log(error.response.data.error)
-     }
+            const signUpResponse = (await signUp(formData)).data;
+            if (signUpResponse) {
+                toast.success('Register Successfuly. please login');
+                setConfirmPassword('');
+                setFormData({
+                    email: '',
+                    password: '',
+                });
+            }
 
-        setFormData({
-            email: '',
-            password: '',
-        });
+        } catch (error) {
+            toast.error('Note: Only defined users succeed registration');
+            console.log(error.response.data.error)
+        }
+
+
     };
 
     return (
@@ -53,19 +69,22 @@ const SignUpForm = () => {
                     type="password"
                     id="password"
                     name="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    value={formData.password}
+                    onChange={handleChange}
                 />
                 <label htmlFor="password">Confirm Password:</label>
                 <input
                     type="password"
                     id="cPassword"
                     name="cPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <button type="submit">Create Account</button>
+                <ToastContainer />
                 <p>
                     Already a member?{' '}
-                    <Link to="/" style={{ color: '#3498db' }}>
+                    <Link to="/" style={{ color: '#3498db', textDecoration: 'none ' }}>
                         Login
                     </Link>
                     .

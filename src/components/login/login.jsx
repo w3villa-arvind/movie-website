@@ -1,13 +1,15 @@
 // src/components/LoginForm.js
 
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { loginAPI } from '../../apiService/axiosClient';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './login.scss';
 
-const LoginForm = ({onLogin}) => {
+const LoginForm = ({ onLogin }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -25,18 +27,20 @@ const LoginForm = ({onLogin}) => {
     e.preventDefault();
 
     try {
-        const response = (await loginAPI(formData)).data;
-        const token = response.token;
-        onLogin(token);
-          if(!!response){
-            navigate('/movieList');
-              setFormData({
-                email: '',
-                password: '',
-              });
-          }
+      const response = (await loginAPI(formData)).data;
+      const token = response.token;
+      onLogin(token);
+      if (!!response) {
+        navigate('/movieList');
+        toast.success('login successful!');
+        setFormData({
+          email: '',
+          password: '',
+        });
+      }
     } catch (error) {
-        console.log(error.response.data.error)
+      toast.error('login faild,user not found');
+      console.log(error.response.data.error)
     }
   };
 
@@ -61,13 +65,14 @@ const LoginForm = ({onLogin}) => {
           onChange={handleChange}
         />
         <button type="submit">Login</button>
+        <ToastContainer />
         <p>
-        If you don't have an account,{' '}
-        <Link to="/signup" style={{ color: '#3498db' }}>
-          sign up here
-        </Link>
-        .
-      </p>
+          If you don't have an account,{' '}
+          <Link to="/signup" style={{ color: '#3498db', textDecoration: 'none' }}>
+            sign up here
+          </Link>
+          .
+        </p>
       </form>
       <div>
       </div>

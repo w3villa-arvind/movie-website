@@ -21,13 +21,15 @@
             }
         }
     }
-    .footer-content{
+
+    .footer-content {
         list-style: none;
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         justify-content: space-around;
-        .footer-text-list{
+
+        .footer-text-list {
             display: grid;
             font-size: 22px;
             text-align: start;

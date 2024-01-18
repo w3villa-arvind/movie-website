@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams ,Link} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getMoviesDetails, getStarCast, getMovieVideos, getSimilarMovies } from '../../apiService/axiosClient';
 import Header from '../header/header';
 import apiConfig from '../../apiService/apiConfig';
@@ -48,7 +48,7 @@ const MovieDetails = () => {
         const getsimilarMovieList = async () => {
             try {
                 const similarMovies = (await getSimilarMovies(id)).data;
-                setSimilarMovie(similarMovies.results.slice(0,10));
+                setSimilarMovie(similarMovies.results.slice(0, 10));
 
             } catch (error) {
 
@@ -58,11 +58,11 @@ const MovieDetails = () => {
     }, [id]);
     const scrollToTop = () => {
         window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
+            top: 0,
+            behavior: 'smooth',
         });
-      };
-    
+    };
+
     return (
         <>
             {
@@ -118,7 +118,7 @@ const MovieDetails = () => {
                                         <ul className="movie-list">
                                             {similarMovie.map((movie) => (
                                                 <li key={movie.id} className="movie-card">
-                                                    <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={ () => scrollToTop()} >
+                                                    <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()} >
                                                         <img
                                                             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                                             alt={movie.original_title}

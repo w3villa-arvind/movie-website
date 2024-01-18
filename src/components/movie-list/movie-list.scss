@@ -1,5 +1,3 @@
-
-
 .movie-list {
     list-style: none;
     display: flex;
@@ -42,8 +40,9 @@
         margin: 0px 2px;
     }
 }
+
 @media screen and (max-width: 360px) {
-    .movie-card{
+    .movie-card {
         width: 350px !important;
     }
 }
