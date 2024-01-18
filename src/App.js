@@ -33,47 +33,85 @@ function App() {
   return (
     <Router>
       <Routes>
-            <Route
-              path="/"
-              element={
-                isLoggedIn ? (
-                  <Navigate to="/movieList" />
-                ) : (
-                  <Login onLogin={handleLogin} />
-                )
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                isLoggedIn ? (
-                  <Navigate to="/movieList" />
-                ) : (
-                  <Signup onLogin={handleLogin} />
-                )
-              }
-            />
-            <Route
-              path="/movieList"
-              element={<MovieList onLogout={handleLogout} />}
-            />
-            <Route
-              path="/movieList/page/:pageNo"
-              element={<MovieList onLogout={handleLogout} />}
-            />
-            <Route
-              path="/search/:query"
-              element={<CustomList />}
-            />
-            <Route
-              path="/search/:query/page/:pageNo"
-              element={<CustomList />}
-            />
-            <Route
-              path="/movieDetails/:id"
-              element={<MovieDetails />}
-            />
-            <Route path="*" element={<Navigate to="/" />} /> 
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/movieList" />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/movieList" />
+            ) : (
+              <Signup />
+            )
+          }
+        />
+        <Route
+          path="/movieList"
+          element={
+            isLoggedIn ? (
+              <MovieList />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/movieList/page/:pageNo"
+          element={
+            isLoggedIn ? (
+              <MovieList onLogout={handleLogout} />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/search/:query"
+          element={
+            isLoggedIn ? (
+              <CustomList />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/search/:query/page/:pageNo"
+          element={
+            isLoggedIn ? (
+              <CustomList />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/movieDetails/:id"
+          element={
+            isLoggedIn ? (
+              <MovieDetails />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route path="*"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/" />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
 
 
 

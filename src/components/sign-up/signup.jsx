@@ -58,7 +58,7 @@ const SignUpForm = () => {
                 />
                 <label htmlFor="password">Confirm Password:</label>
                 <input
-                    type="cPassword"
+                    type="password"
                     id="cPassword"
                     name="cPassword"
                 />

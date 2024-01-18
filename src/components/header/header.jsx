@@ -28,6 +28,7 @@ const Header = () => {
                 <div className='search-bar'>
                     <input
                         type="text"
+                        className='movie-input'
                         value={inputValue}
                         placeholder='what are you lookin for?'
                         onChange={(e) => setInputValue(e.target.value)}
