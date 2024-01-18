@@ -11,29 +11,31 @@ import './login.scss';
 
 const LoginForm = ({ onLogin }) => {
   const navigate = useNavigate();
-  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-    setErrors({
-      ...errors,
-      [name]: '',
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
+
+    if (!formData.email.trim()) {
+      toast.error('email is required');
       return;
     }
+
+    if (!formData.password.trim()) {
+      return;
+      toast.error('password is required');
+    }
+
     try {
       const response = (await loginAPI(formData)).data;
       const token = response.token;
@@ -51,20 +53,6 @@ const LoginForm = ({ onLogin }) => {
       console.log(error.response.data.error)
     }
   };
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'email is required';
-    }
-
-    if (!formData.password.trim()) {
-      newErrors.password = 'password is required';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
@@ -76,7 +64,6 @@ const LoginForm = ({ onLogin }) => {
           value={formData.email}
           onChange={handleChange}
         />
-        {errors.email && <span className="error-message"> {errors.email}</span>}
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -85,7 +72,6 @@ const LoginForm = ({ onLogin }) => {
           value={formData.password}
           onChange={handleChange}
         />
-        {errors.password && <span className="error-message"> {errors.password}</span>}
         <button type="submit">Login</button>
         <ToastContainer />
         <p>
