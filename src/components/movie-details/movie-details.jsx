@@ -18,7 +18,6 @@ const MovieDetails = () => {
             try {
                 const response = (await getMoviesDetails(id)).data;
                 setItems(response);
-                console.log(response,'aaa')
             } catch (error) {
 
             }

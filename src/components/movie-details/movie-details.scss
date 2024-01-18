@@ -14,7 +14,7 @@
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                padding-top: 146%;
+                padding-top: 160%;
             }
         }
     }
@@ -65,6 +65,7 @@
             width: 111px;
             height: 251px;
             border-radius: 10px;
+
             .cast-image {
                 background-position: center;
                 background-size: cover;
@@ -74,11 +75,13 @@
         }
     }
 }
-h2{
+
+h2 {
     color: white;
     padding-top: 4px;
 }
-.rating-color{
+
+.rating-color {
     color: yellow !important;
 }
 
@@ -86,23 +89,38 @@ h2{
     color: white;
     padding-top: 30px;
 }
-iframe{
+
+iframe {
     border-radius: 15px;
 }
-.main-video-list{
+
+.main-video-list {
     padding-bottom: 60px;
 }
-@media screen and (max-width: 700px){
+
+@media screen and (max-width: 700px) {
     input {
         width: 100px !important;
     }
+
     .website-title {
         font-size: 15px !important;
     }
-    .poster-main{
-        display: none;
-    }
-    .movie-details{
+
+    .poster-main {
         width: 100% !important;
     }
-  }
+
+    .movie-poster {
+        display: unset !important;
+    }
+
+    .movie-details {
+        width: 100% !important;
+    }
+    .poster-img {
+        padding-top: 100% !important;
+        margin: 0px 23px !important;
+        border-radius: 31px !important;
+    }
+}

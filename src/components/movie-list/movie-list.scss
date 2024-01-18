@@ -41,3 +41,8 @@
         margin: 0px 2px;
     }
 }
+@media screen and (max-width: 360px) {
+    .movie-card{
+        width: 350px !important;
+    }
+}
