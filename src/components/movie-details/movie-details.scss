@@ -31,12 +31,12 @@
             display: flex;
             list-style: none;
             padding: unset;
-
+            flex-wrap: wrap;
             li {
                 padding: 5px 15px;
                 color: white;
                 background-color: black;
-                margin: 0px 6px;
+                margin: 5px 6px;
                 border-radius: 26px;
                 border: 1px solid;
 
