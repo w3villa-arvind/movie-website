@@ -1,0 +1,108 @@
+.movie-poster {
+    display: flex;
+    justify-content: center;
+
+    .poster-main {
+        width: 30%;
+        margin: 16px 7px;
+
+        .movie-content {
+            border-radius: 35px;
+            overflow: hidden;
+
+            .poster-img {
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding-top: 146%;
+            }
+        }
+    }
+
+    .movie-details {
+        padding: 19px 31px;
+        width: 65%;
+
+        .movie-title {
+            color: white;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            padding: unset;
+
+            li {
+                padding: 5px 15px;
+                color: white;
+                background-color: black;
+                margin: 0px 6px;
+                border-radius: 26px;
+                border: 1px solid;
+
+            }
+        }
+
+        p {
+            color: white;
+        }
+
+        h3 {
+            color: white;
+        }
+    }
+
+    .casts {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        gap: 11px;
+
+        .image-item {
+            object-fit: cover;
+            overflow: hidden;
+            width: 111px;
+            height: 251px;
+            border-radius: 10px;
+            .cast-image {
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding-top: 165%;
+            }
+        }
+    }
+}
+h2{
+    color: white;
+    padding-top: 4px;
+}
+.rating-color{
+    color: yellow !important;
+}
+
+.youtubeVideo {
+    color: white;
+    padding-top: 30px;
+}
+iframe{
+    border-radius: 15px;
+}
+.main-video-list{
+    padding-bottom: 60px;
+}
+@media screen and (max-width: 700px){
+    input {
+        width: 100px !important;
+    }
+    .website-title {
+        font-size: 15px !important;
+    }
+    .poster-main{
+        display: none;
+    }
+    .movie-details{
+        width: 100% !important;
+    }
+  }

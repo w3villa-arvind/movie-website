@@ -1,0 +1,36 @@
+.footer {
+    position: relative;
+    padding: 6rem 2rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .footer-title {
+        align-items: center;
+        text-align: center;
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 3px 2px 4px #0ba91f;
+            cursor: pointer;
+
+            Link {
+                text-decoration: none;
+            }
+        }
+    }
+    .footer-content{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+        .footer-text-list{
+            display: grid;
+            font-size: 22px;
+            text-align: start;
+        }
+    }
+}

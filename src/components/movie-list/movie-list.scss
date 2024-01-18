@@ -1,0 +1,43 @@
+
+
+.movie-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+
+    .movie-card {
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        cursor: pointer;
+
+        .movie-poster {
+            width: 100%;
+            height: auto;
+        }
+
+        .movie-title {
+            color: white;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+    }
+}
+
+.pagination {
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 25px;
+
+    button {
+        border-radius: 10px;
+        padding: 2px 15px;
+        margin: 0px 2px;
+    }
+}
