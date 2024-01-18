@@ -33,9 +33,12 @@ const MovieList = () => {
     const handlePageChange = (newPage) => {
         navigate(`/movieList/page/${newPage}`);
     };
-    const scrollpage = ()=>{
-        window.scrollTo(0, 0);
-    }
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      };
     return (
         <div>
             <div className="container">
@@ -46,7 +49,7 @@ const MovieList = () => {
                             <ul className="movie-list">
                                 {movies.map((movie) => (
                                     <li key={movie.id} className="movie-card">
-                                        <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={ () => scrollpage()} >
+                                        <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={ () => scrollToTop()} >
                                             <img
                                                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                                 alt={movie.original_title}

@@ -57,6 +57,12 @@ const MovieDetails = () => {
         }
         getsimilarMovieList();
     }, [id]);
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      };
     
     return (
         <>
@@ -113,7 +119,7 @@ const MovieDetails = () => {
                                         <ul className="movie-list">
                                             {similarMovie.map((movie) => (
                                                 <li key={movie.id} className="movie-card">
-                                                    <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} >
+                                                    <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={ () => scrollToTop()} >
                                                         <img
                                                             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                                             alt={movie.original_title}
