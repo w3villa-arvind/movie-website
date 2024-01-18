@@ -23,6 +23,11 @@ const SignUpForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!formData.email.trim() || !formData.password.trim() || !confirmPassword.trim()) {
+            toast.error('Please enter a value in the empty field');
+            return;
+          }
+          
         if (confirmPassword != formData.password) {
             toast.error('Password does not meet requirements. Please check and try again.');
             setConfirmPassword('');
