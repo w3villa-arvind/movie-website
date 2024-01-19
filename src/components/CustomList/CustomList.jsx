@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { searchMovies } from "../../apiService/axiosClient";
 import Header from "../header/header";
 import Footer from "../Footer/Footer";
+import bg from './../../assets/footer-bg.jpg'
 
 const CustomList = () => {
     const { query } = useParams();
@@ -51,7 +52,7 @@ const CustomList = () => {
                         <li key={movie.id} className="movie-card">
                             <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()}>
                                 <img
-                                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                    src={movie && movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : bg}
                                     alt={movie.original_title}
                                     className="movie-poster"
                                 />

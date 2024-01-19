@@ -5,6 +5,8 @@ import Header from '../header/header';
 import apiConfig from '../../apiService/apiConfig';
 import './movie-details.scss'
 import Footer from '../Footer/Footer';
+import bg from './../../assets/footer-bg.jpg'
+
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -120,7 +122,7 @@ const MovieDetails = () => {
                                                 <li key={movie.id} className="movie-card">
                                                     <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()} >
                                                         <img
-                                                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                                            src={movie && movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : bg}
                                                             alt={movie.original_title}
                                                             className="movie-poster"
                                                         />
