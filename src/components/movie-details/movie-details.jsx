@@ -91,6 +91,15 @@ const MovieDetails = () => {
                                         <p className='rating-color'> <b>Rating:</b> {item.vote_average}/10 from {item.vote_count} users</p>
                                     </div>
                                     <div>
+                                        <h4>Languages</h4>
+                                        <ul>
+                                            {item.spoken_languages && item.spoken_languages.map((lang, i) => (
+                                                <li key={i}>{lang.name}</li>
+                                            ))}
+                                        </ul>
+
+                                    </div>
+                                    <div>
                                         <p>{item.overview}</p>
                                     </div>
                                     <div>
