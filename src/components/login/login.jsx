@@ -32,8 +32,8 @@ const LoginForm = ({ onLogin }) => {
     }
 
     if (!formData.password.trim()) {
-      return;
       toast.error('password is required');
+      return;
     }
 
     try {
