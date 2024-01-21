@@ -122,27 +122,40 @@ const MovieDetails = () => {
                                     <Movie key={index} movieData={movieData} />
                                 ))}
                             </div>
-                            <div className='list-movie'>
-                                <h2 >similar movies</h2>
-                                {similarMovie && (
-                                    <div>
-                                        <ul className="movie-list">
-                                            {similarMovie.map((movie) => (
-                                                <li key={movie.id} className="movie-card">
-                                                    <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()} >
-                                                        <img
-                                                            src={movie && movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : bg}
-                                                            alt={movie.original_title}
-                                                            className="movie-poster"
-                                                        />
-                                                        <p className="movie-title">{movie.original_title} ({movie.release_date})</p>
-                                                    </Link>
-                                                </li>
-                                            ))}
-                                        </ul>
+                            { similarMovie && similarMovie.length ? (
+                                <>
+                                    <div className='list-movie'>
+                                        <h2 >similar movies</h2>
+                                        {similarMovie && (
+                                            <div>
+                                                <ul className="movie-list">
+                                                    {similarMovie.map((movie) => (
+                                                        <li key={movie.id} className="movie-card">
+                                                            <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()} >
+                                                                <img
+                                                                    src={movie && movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : bg}
+                                                                    alt={movie.original_title}
+                                                                    className="movie-poster"
+                                                                />
+                                                                <p className="movie-title">{movie.original_title} ({movie.release_date})</p>
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
                                     </div>
-                                )}
-                            </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="main-not-found">
+                                        <div className="notFound">
+                                            <p>No data found</p>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+
                             <Footer />
                         </div>
                     </>

@@ -47,27 +47,41 @@ const CustomList = () => {
         <>
             <div className="container">
                 <Header />
-                <ul className="movie-list">
-                    {movies.map((movie) => (
-                        <li key={movie.id} className="movie-card">
-                            <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()}>
-                                <img
-                                    src={movie && movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : bg}
-                                    alt={movie.original_title}
-                                    className="movie-poster"
-                                />
-                                <p className="movie-title">{movie.original_title} ({movie.release_date})</p>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                <div className='pagination'>
-                    <button onClick={() => handlePageChange(Number(pageNo) - 1)} disabled={Number(pageNo) === 1}>
-                        Previous Page
-                    </button>
-                    <button>{Number(pageNo)}</button> <button>{totalPage}</button>
-                    <button onClick={() => handlePageChange(Number(pageNo) + 1)}>Next Page</button>
-                </div>
+                {movies.length ? (
+                    <>
+                        <ul className="movie-list">
+                            {movies.map((movie) => (
+                                <li key={movie.id} className="movie-card">
+                                    <Link to={`/movieDetails/${movie.id}`} style={{ textDecoration: 'none' }} onClick={() => scrollToTop()}>
+                                        <img
+                                            src={movie && movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : bg}
+                                            alt={movie.original_title}
+                                            className="movie-poster"
+                                        />
+                                        <p className="movie-title">{movie.original_title} ({movie.release_date})</p>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className='pagination'>
+                            <button onClick={() => handlePageChange(Number(pageNo) - 1)} disabled={Number(pageNo) === 1}>
+                                Previous Page
+                            </button>
+                            <button>{Number(pageNo)}</button> <button>{totalPage}</button>
+                            <button onClick={() => handlePageChange(Number(pageNo) + 1)}>Next Page</button>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className="main-not-found">
+                            <div className="notFound">
+                                <p>No data found</p>
+                            </div>
+                        </div>
+                    </>
+                )
+                }
+
                 <Footer />
             </div>
         </>
