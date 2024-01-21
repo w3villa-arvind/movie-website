@@ -148,6 +148,7 @@ const MovieDetails = () => {
                                 </>
                             ) : (
                                 <>
+                                <h2 >similar movies</h2>
                                     <div className="main-not-found">
                                         <div className="notFound">
                                             <p>No data found</p>
