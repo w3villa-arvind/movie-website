@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    padding-bottom: 10px;
 
 
     .movie-card {
@@ -44,5 +45,22 @@
 @media screen and (max-width: 360px) {
     .movie-card {
         width: 350px !important;
+
     }
+}
+@media screen and (max-width: 477px) {
+    .movie-card {
+        width: 149px !important;
+        height: 300px !important;
+        
+    }
+    .movie-list{
+        padding-left: unset;
+    }
+    .movie-poster {
+        width: 100%;
+        height: 215px !important;
+    }
+
+
 }
