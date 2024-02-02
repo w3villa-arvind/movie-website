@@ -1,7 +1,7 @@
 import './movie-list.scss';
 import { useEffect, useState } from 'react';
 import { getMoviesList } from '../../apiService/axiosClient';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../header/header';
 import Footer from '../Footer/Footer';
@@ -11,7 +11,6 @@ import bg from './../../assets/footer-bg.jpg'
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [totalPage, setTotalPage] = useState(0);
-    const location = useLocation();
     const navigate = useNavigate();
     let { pageNo } = useParams();
     pageNo = pageNo ? pageNo : 1

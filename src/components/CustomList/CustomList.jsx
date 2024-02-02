@@ -35,7 +35,7 @@ const CustomList = () => {
 
     useEffect(() => {
         handleSearch();
-    }, [query, pageNo])
+    }, [query, pageNo]);
 
     const handlePageChange = (newPage) => {
         navigate(`/search/${query}/page/${newPage}`);

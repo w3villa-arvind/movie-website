@@ -28,7 +28,7 @@ const SignUpForm = () => {
             return;
           }
           
-        if (confirmPassword != formData.password) {
+        if (confirmPassword !== formData.password) {
             toast.error('Password does not meet requirements. Please check and try again.');
             setConfirmPassword('');
             setFormData({

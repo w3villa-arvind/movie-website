@@ -10,8 +10,6 @@ import CustomList from './components/CustomList/CustomList';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const token = localStorage.getItem('token'); // You can use a more secure way to store tokens
-
   useEffect(() => {
     // Check if a valid token exists in localStorage on page load
     const token = localStorage.getItem('token');
