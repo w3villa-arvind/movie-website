@@ -24,7 +24,6 @@
         .movie-title {
             color: white;
             text-align: center;
-            margin: 10px 0;
             font-weight: bold;
         }
     }
@@ -51,7 +50,7 @@
 @media screen and (max-width: 477px) {
     .movie-card {
         width: 149px !important;
-        height: 300px !important;
+        height: 290px !important;
         
     }
     .movie-list{

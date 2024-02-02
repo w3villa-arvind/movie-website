@@ -40,3 +40,13 @@
         }
     }
 }
+@media screen and (max-width: 402px) {
+    .footer-content {
+        gap:unset !important;
+        .footer-text-list {
+            display: grid;
+            font-size: 22px;
+            text-align: start;
+        }
+    }
+}
