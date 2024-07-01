@@ -1,15 +1,11 @@
 import './header.scss'
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
     const [inputValue, setInputValue] = useState('');
     const navigate = useNavigate();
-    const handleLogoutClick = () => {
-        localStorage.removeItem('token');
-        window.location.reload();
-    };
     const homePage = () => {
         navigate('/movieList');
     }
@@ -38,7 +34,6 @@ const Header = () => {
                     </div>
                 </div>
                 <div>
-                    <button onClick={handleLogoutClick} className='logout-buttom'> <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>logout</Link></button>
                 </div>
             </div>
         </div>
